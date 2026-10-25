@@ -1,0 +1,73 @@
+------------ Start and execute According to setup guide ----------------
+Guide :- https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot/tree/main/setup
+
+1. Install the AWS CLI v2
+2. curl -fsSL https://awscli.amazonaws.com/v2/install.sh | bash
+3. When running this command :- /home/ubuntu/.local/bin/aws --version
+aws-cli/2.38.5 Python/3.14.8 Linux/7.0.0-1014-aws script-exe/x86_64.ubuntu.26
+ubuntu@ip-172-31-2-42:~$ aws --version
+Command 'aws' not found, but can be installed with:
+
+4. We are getting "aws not found" So we need to move our binaries from  
+5. sudo mv /home/ubuntu/.local/bin/aws /usr/local/bin/
+6. Then check :-  aws --version
+aws-cli/2.38.5 Python/3.14.8 Linux/7.0.0-1014-aws script-exe/x86_64.ubuntu.26
+ubuntu@ip-172-31-2-42:~$
+
+7. Then we run :- aws configure
+8. For aws configure we need to pass the AWS Access Key ID and Secret Access Key so for that we need to create the IAM
+9. and create the Security Credentials --->> CLI   
+10. and pass thos credentials after entering the command aws configure.
+
+11. Then we need to create a virtual environment :- python3 -m venv ~/eb-ve
+12. and after than we need to activate :- source ~/eb-ve/bin/activate
+13. After running this command we can run the CLI of Elastic Beanstalk :- pip install awsebcli --upgrade
+14. Now we have all EB Command Line Interface.
+
+15. If u want to out from this env we can also deactivate the EB environment:- deactivate
+
+
+16. then install :- sudo apt-get install docker.io docker-compose-v2 -y  
+17. Then do :-  
+ubuntu@ip-172-31-2-42:~$ sudo usermod -aG docker $USER
+ubuntu@ip-172-31-2-42:~$ newgrp docker
+
+18. Then clone the repo :- git clone https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot.git
+19. Move into the dir and go to setup and run this shell file :- ./check-setup.sh
+20. Snapshot of that command :- 
+./check-setup.sh
+Required
+  [ok]   AWS CLI v2 (aws-cli/2.38.5)
+  [ok]   Signed in to AWS as user/eb-admin
+  [ok]   Region is ap-south-1
+  [skip] Commands in this repo were tested in us-west-2
+  [ok]   EB CLI (EB CLI 3.27.5)
+  [ok]   python3
+  [ok]   git
+  [ok]   curl
+
+Needed in a few places
+  [skip] zip not found (used in Project 2 and chapter 5)
+  [ok]   unzip
+  [ok]   openssl
+
+Optional
+  [ok]   docker
+
+Ready. Next: create the IAM roles (setup/iam-roles.md).
+(eb-ve) ubuntu@ip-172-31-2-42:~/elastic-beanstalk-in-one-shot/setup$
+
+
+21. Now need to create the IAM role for EB (https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot/blob/main/setup/iam-roles.md).
+22. So go to IAM -> Role -> Create Role -> AWS Service (Elastic Beanstalk) -> Now we need to create two roles 1. Compute and 2. Environment (So create both one by one)
+23. Then give role name and other things that defined in the repo setup/iam-roles.md guide
+24. Now we have created two roles Compute (aws-elasticbeanstalk-ec2-role) and  Environment (aws-elasticbeanstalk-service-role)
+
+-----------------------------------------------------------------------
+
+--------------------- Common Flow -------------------------
+- Before setting up the Elastic Beanstalk, we need to create or configure the EC2 instance and create the IAM role all of this, for accessing the EB EC2 servers in Standard Mode. 
+
+- So the whole setup guide for EC2 and IAM is on above guide.
+
+----------------------------------------------------------

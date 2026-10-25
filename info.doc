@@ -1,0 +1,35 @@
+----------------------- Amazon Beanstalk ------------------------
+
+- Amazon Beanstalk is a platform as a service (PAAS).
+
+- Purpose :-
+1. Suppose we have a code or docker images or any legacy code we can directly run that as PAAS (Elastic Beanstalk). 
+2. So when we run that so their scaling, maintenance, security and load balancing will all be handle by the Elastic Beanstalk.
+3. So we don't need to worry about the underlying infrastructure.
+
+Launch:-
+1. First time create in 2011 and now again revamped.
+2. They have standard mode (Run on EC2 instance) and cluster mode (Run on EKS cluster).
+
+------------------------------------------------------------------
+
+--------------------- Repo & Notes (Learning & Guidance) -----------------------
+- https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot
+
+-----------------------------------------------------------
+
+---------------------------- flowchart LR --------------------------------
+    A[Your code or Docker image] --> B[Elastic Beanstalk environment]
+    B --> C[Load balancer, scaling, health checks]
+    C --> D[Live URL]
+
+------------------------------------------------------------------
+
+
+--------------------------- Setup ------------------------------
+
+- https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot/tree/main/setup
+
+- 3. Start from here :- Install the AWS CLI v2
+
+-------------------------------------------------------------
