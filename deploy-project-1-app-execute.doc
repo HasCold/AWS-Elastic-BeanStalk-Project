@@ -1,0 +1,38 @@
+------------------------------- Standard Mode ----------------------------------------------------
+
+- Start with deploying this github repo as first E-Commerce App Project  :- 
+
+1. https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot/blob/main/projects/project-1-single-tier.md
+2. Source 
+3. Clone the repo locally on your system not on EC2 instance :- git clone https://github.com/LondheShubham153/e-commerce-github-actions.git
+4. Go to Project-1/beanstalk/docker-compose.yml file pls compressed it to the zip file.
+5. Choose .zip file from local when creating the Standard Mode Environment in elasticbeanstalk.
+6. Platform-Specific-Options -> Proxy Server -> Select nginx
+7. Server Access -> 
+- Service Role -> Use another role -> select role -> aws-elasticbeanstalk-service-role
+- EC2 instance profile -> Use another role -> select role -> aws-elasticbeanstalk-ec2-role
+- EC2 key pair -> eb-server-key (if u want to do ssh on this server)
+
+- Then click on Create.
+
+Note :-
+- U can see the application will be deployed and can be accessible by ur domain that u provided so the moral of the thing is that if u have a dockerfile of ur application so u can easily deploy that.
+- Dockerfile se banti ha Docker Image and -> Docker Image se banta ha Docker container.
+- The best thing is that we don't need to write any yml or manifest file for it.
+
+-----------------------------------------------------------------------------------
+
+- We can also deploy the app via the CLI so to follow this :- 
+https://github.com/LondheShubham153/elastic-beanstalk-in-one-shot/blob/main/projects/project-1-single-tier.md
+- Run it with the EB CLI
+
+------------------------------- Cluster Mode ----------------------------------------------------
+. Again entering the details of app like name :- e-commerce-store-app-cluster and provide ur desired domain name :- 
+hascolabs-cluster.
+. and Copy the docker image command from the :- https://hub.docker.com/r/trainwithshubham/e-commerce-python
+. Select Application Code :- Container Image
+. Container Image URI :- trainwithshubham/e-commerce-python:latest
+. Service Port :- 8080
+. Service Role :- U can create the new role and select the existing role as defined in Standard Mode Demo part above.
+
+-------------------------------------------------------------------------------------------------
